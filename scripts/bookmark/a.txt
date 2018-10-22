@@ -1,0 +1,5 @@
+ <html>
+     <body onload="window.setTimeout('document.getElementById(\'criimlaunch\').click();', 1000);">
+
+        <script>
+           var e_m64 = "

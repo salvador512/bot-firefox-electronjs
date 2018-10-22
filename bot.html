@@ -1,0 +1,14 @@
+ <html>
+     <body onload="window.setTimeout('document.getElementById(\'criimlaunch\').click();', 1000);">
+
+        <script>
+           var e_m64 = "VkVSU0lPTiUyMEJVSUxEJTNEMTAwMjE0NTAlMEFVUkwlMjBHT1RPJTNEaHR0cHMlM0ElMkYlMkZ3d3cuYmV0MzY1LmNvbSUyRmVuJTJGJTBBQ0xFQVIlMEFSRUZSRVNIJTBBVEFHJTIwUE9TJTNEMSUyMFRZUEUlM0RBJTIwQVRUUiUzRFRYVCUzQUVuZ2xpc2glMEFXQUlUJTIwU0VDT05EUyUzRDElMEFUQUclMjBQT1MlM0QxJTIwVFlQRSUzRElOUFVUJTNBVEVYVCUyMEFUVFIlM0QqJTIwQ09OVEVOVCUzRGZpcmE2NDclMEFUQUclMjBQT1MlM0QxJTIwVFlQRSUzRElOUFVUJTNBUEFTU1dPUkQlMjBBVFRSJTNEKiUyMENPTlRFTlQlM0RBdmVsbGFuYTY5JTBBVEFHJTIwUE9TJTNEMSUyMFRZUEUlM0RCVVRUT04lMjBBVFRSJTNEVFhUJTNBR08lMEFXQUlUJTIwU0VDT05EUyUzRDE";
+        </script>
+
+        <a id="criimlaunch" href="javascript:(function() {try{if(!/^(?:chrome|https?|file)/.test(location)){alert('iMacros: Open webpage to run a macro.');return;}
+           var macro = {};macro.source = decodeURIComponent(atob(e_m64));macro.name = 'MacroBookmarklet';
+           var evt = document.createEvent('CustomEvent');evt.initCustomEvent('iMacrosRunMacro', true, true, macro);
+           window.dispatchEvent(evt);}catch(e){alert('iMacros Bookmarklet error: '+e.toString());}}) ();">Launch iMacros</a>
+
+     </body>
+ </html>

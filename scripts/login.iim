@@ -1,0 +1,15 @@
+VERSION BUILD=10021450
+URL GOTO=https://firefox-bot.herokuapp.com/api/getActive
+SET !EXTRACT_TEST_POPUP NO
+TAG POS=1 TYPE=BODY ATTR=* EXTRACT=TXT
+SET !VAR1 EVAL("var json = JSON.parse('{{!EXTRACT}}'); json.user[0].username;")
+SET !VAR2 EVAL("var json = JSON.parse('{{!EXTRACT}}'); json.user[0].password;")
+URL GOTO=https://www.bet365.com/en/
+CLEAR
+REFRESH
+TAG POS=1 TYPE=A ATTR=TXT:English
+WAIT SECONDS=1
+TAG POS=1 TYPE=INPUT:TEXT ATTR=* CONTENT={{!VAR1}}
+TAG POS=1 TYPE=INPUT:PASSWORD ATTR=* CONTENT={{!VAR2}}
+TAG POS=1 TYPE=BUTTON ATTR=TXT:GO
+WAIT SECONDS=1
