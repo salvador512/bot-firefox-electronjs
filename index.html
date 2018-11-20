@@ -79,7 +79,19 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><div><b>Usuarios Habilitados:</b> <span id="n_users">{{n_users}}</span> de 10 - <b>IP Country: </b> <span>{{ip_dir.country}}</span><b> - Trabajadores: </b><span id="workers">{{workers}}</span></div></li>
+                            <li>
+                            	<div>
+                            		<b>Usuarios Habilitados:</b> <span id="n_users">{{n_users}}</span> de 10 - <b>IP Country: </b> <span>{{ip_dir.country}}</span><b>
+                            	</div>
+                            	<div>
+	                            	 <button type="submit" class="btn btn-success btn-sm" id="OpenManager">
+			                          <i class="fa fa-dot-circle-o"></i> Abrir Manager
+			                        </button>                     	
+			                        <button type="submit" class="btn btn-success btn-sm" id="CreateUsers">
+			                          <i class="fa fa-dot-circle-o"></i> Crear usuarios
+			                        </button>	
+                            	</div>
+                            </li>
                         </ol>
                     </div>
                 </div>
@@ -89,8 +101,10 @@
         <div class="content mt-3">
             <div class="animated fadeIn">
             	<div class="row">
-	                <div class="col-4">
-		                    <div class="card">
+            		<!-- izquierda -->
+	                <div class="col-6">
+	                		<!-- comados firefox -->
+<!-- 		                    <div class="card">
 		                      <div class="card-header">
 		                        <strong>Comandos de firefox</strong>
 		                      </div>
@@ -102,9 +116,9 @@
 		                          <i class="fa fa-dot-circle-o"></i> Crear usuarios
 		                        </button>
 		                      </div>
-		                    </div>      
-
-		                    <div class="card">
+		                    </div>    -->   
+		               		 <!-- macros -->
+<!-- 		                    <div class="card">
 		                      <div class="card-header">
 		                        <strong>Macros</strong>
 		                      </div>
@@ -112,12 +126,12 @@
 	                            <button type="submit" class="btn btn-info btn-sm" id="execMacro" ng-click="getWorkers()">
 	                              <i class="fa fa-dot-circle-o"></i> Login Users
 	                            </button> 	                             
-	                            <button type="submit" class="btn btn-warning btn-sm" id="execMacro2" ng-disabled="workersStatus" ng-click="resetWorkers()">
+	                            <button type="submit" class="btn btn-warning btn-sm" id="execMacro2" ng-disabled="workersStatuss" ng-click="">
 	                              <i class="fa fa-dot-circle-o"></i> Run workers
 	                            </button>                                             	
 		                      </div>
-		                    </div>                        
-		                                	
+		                    </div>   -->                      
+		                	<!-- Añadir Usuarios               	 -->
 		                    <div class="card">
 		                      <div class="card-header">
 		                        <strong>Añadir usuarios</strong>
@@ -158,48 +172,88 @@
 		                        </button>
 		                      </div>
 		                    </div>
-					</div>            		
+		                	<!-- lista de usuarios -->
+		                    <div class="card">
+		                        <div class="card-header">
+		                            <strong class="card-title">Lista de usuarios</strong>
+		                            <span></span>
+			                        <button ng-click="activate()" type="submit" class="btn btn-success btn-sm" id="refresh">
+			                          <i class="fa fa-refresh"></i>
+			                        </button>     	                        
+		                        </div>
+		                        <div class="card-body">
+		                                
+		                            <table class="table table-striped">
+		                              <thead>
+		                                <tr>
+		                                  <th scope="col">#</th>
+		                                  <th scope="col">Username</th>
+		                                  <th scope="col">Password</th>
+		                                  <th scope="col">Estatus</th>
+		                                  <th scope="col">Acciones</th>	                                  
+		                                </tr>
+		                              </thead>
+		                              <tbody>
+		                                <tr ng-repeat='item in users'>
+		                                  <th scope="row" >{{$index+1}}</th>
+		                                  <td>{{item.username}}</td>
+		                                  <td>{{item.password}}</td>
+		                                  <td>{{item.status}}</td>
+		                                  <td>		                        
+		                                  	<button type="submit" class="btn btn-info btn-sm" id="refresh" ng-click="updateUser(item)">
+			                          <i class="fa fa-refresh"></i>
+			                        </button>
+		                                  	<button ng-click="removeUser(item._id)"type="submit" class="btn btn-danger btn-sm" id="refresh">
+			                          <i class="fa fa-trash"></i>
+			                        </button>		                        
+			                    		  </td>                                 
+		                                </tr>                                
+		                              </tbody>
+		                            </table>
+		                        </div>
+		                    </div>		                    
+					</div>      
 
-	                <div class="col-8">
-	                    <div class="card">
-	                        <div class="card-header">
-	                            <strong class="card-title">Lista de usuarios</strong>
-	                            <span></span>
-		                        <button ng-click="activate()" type="submit" class="btn btn-success btn-sm" id="refresh">
-		                          <i class="fa fa-refresh"></i>
-		                        </button>     
-	                        </div>
-	                        <div class="card-body">
-	                                
-	                            <table class="table table-striped">
-	                              <thead>
-	                                <tr>
-	                                  <th scope="col">#</th>
-	                                  <th scope="col">Username</th>
-	                                  <th scope="col">Password</th>
-	                                  <th scope="col">Estatus</th>
-	                                  <th scope="col">Acciones</th>	                                  
-	                                </tr>
-	                              </thead>
-	                              <tbody>
-	                                <tr ng-repeat='item in users'>
-	                                  <th scope="row" >{{$index+1}}</th>
-	                                  <td>{{item.username}}</td>
-	                                  <td>{{item.password}}</td>
-	                                  <td>{{item.status}}</td>
-	                                  <td>		                        
-	                                  	<button type="submit" class="btn btn-info btn-sm" id="refresh" ng-click="updateUser(item)">
-		                          <i class="fa fa-refresh"></i>
-		                        </button>
-	                                  	<button ng-click="removeUser(item._id)"type="submit" class="btn btn-danger btn-sm" id="refresh">
-		                          <i class="fa fa-trash"></i>
-		                        </button>		                        
-		                    		  </td>                                 
-	                                </tr>                                
-	                              </tbody>
-	                            </table>
-	                        </div>
-	                    </div>
+					<!-- derecha	 -->
+	                <div class="col-6">
+	                        <div class="card">
+	                          <div class="card-header">
+	                            <strong>Copia y pega el codigo generado por imacros</strong>
+	                          </div>
+	                          <div class="card-body card-block">
+	                            <form action="" method="post" class="form-horizontal">
+	                              <div class="row form-group">
+	                                <div class="col col-md-12">
+	                                   <div class="row form-group">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-group-addon">Tiempo espera</div>
+													<input type="text" id="waitTime" name="waitTime" class="form-control" ng-model="waitTime">
+													<div class="input-group-addon"><i class="fa fa-clock-o"></i> Segundos</div>
+												</div>
+											</div>
+
+	                                    <textarea id="input1-group1" name="input1-group1" placeholder="Pegar Macro AQUI" class="form-control" ng-change="encode(macro2,'b')" ng-model="macro2" style="min-height: 240px">
+	                                    </textarea >    
+	                                    <textarea id="m64b" ng-hide="true" name="input1-group1" placeholder="Pegar Macro AQUI" class="form-control"  ng-model="m64b" >
+	                                    </textarea >                                      
+
+
+	                                </div>
+	                              </div>                    
+
+	                            </form>
+	                          </div>
+	                          <div class="card-footer">
+	                            <button type="submit" class="btn btn-info btn-sm" id="execMacro" ng-click="getWorkers()">
+	                              <i class="fa fa-dot-circle-o"></i> Login Users
+	                            </button> 	   	                          	
+	                            <button type="submit" class="btn btn-success btn-sm" id="saveMacro" ng-click="macro2=addtimers(macro2)"> 
+	                              <i class="fa fa-dot-circle-o"></i> Subir Macro y Ejecutar
+	                            </button>
+                                                                                
+	                          </div>
+	                        </div>     
 	                </div>
 	            </div>
             </div><!-- .animated -->

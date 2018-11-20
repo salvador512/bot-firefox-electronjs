@@ -59,6 +59,21 @@ button_saveMacro.addEventListener('click', () => {
 
 let button_execMacro = document.getElementById("execMacro");
 button_execMacro.addEventListener('click', () => {
+	// borrar bookmark2 
+	fs.unlink('./scripts/bookmark2.html', function (err) {
+	  if (err) throw err;
+	  console.log('Deletion sucessful bookmark2.');
+	});	
+
+	// Crear html de espera	
+  concat([
+    './scripts/esperarMacro.html'
+  ], './scripts/bookmark2.html', function(err) {
+    if (err) throw err
+    console.log('done bookmark2');
+  });
+
+
 	let n_users = document.getElementById("n_users").innerHTML
 	n_users= parseInt(n_users )
 	console.log(n_users);

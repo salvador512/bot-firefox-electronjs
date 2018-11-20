@@ -79,7 +79,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><div><b>Usuarios Habilitados:</b> <span id="n_users">{{n_users}}</span> de 10 - <b>IP Country: </b> <span>{{ip_dir.country}}</span><b> - Trabajadores: </b><span id="workers">{{workers}}</span></div></li>
+                            <li><div><b>Usuarios Habilitados:</b> <span id="n_users">{{n_users}}</span> de 10 - <b>IP Country: </b> <span>{{ip_dir.country}}</span><b></span></div></li>
                         </ol>
                     </div>
                 </div>
@@ -142,15 +142,12 @@
 	                            </form>
 	                          </div>
 	                          <div class="card-footer">
-	                            <button type="submit" class="btn btn-success btn-sm" id="saveMacro" ng-click="macro2=addtimers(macro2)"> 
-	                              <i class="fa fa-dot-circle-o"></i> Salvar Macro
-	                            </button>
-	                            <button type="submit" class="btn btn-info btn-sm" id="execMacro" ng-click="getWorkers()">
-	                              <i class="fa fa-dot-circle-o"></i> Login Users
-	                            </button> 	                             
-	                            <button type="submit" class="btn btn-warning btn-sm" id="execMacro2" ng-disabled="workersStatus" ng-click="resetWorkers()">
-	                              <i class="fa fa-dot-circle-o"></i> Run workers
-	                            </button>                                                          
+                                <button type="submit" class="btn btn-info btn-sm" id="execMacro" ng-click="getWorkers()">
+                                  <i class="fa fa-dot-circle-o"></i> Login Users
+                                </button>                                   
+                                <button type="submit" class="btn btn-success btn-sm" id="saveMacro" ng-click="macro2=addtimers(macro2)"> 
+                                  <i class="fa fa-dot-circle-o"></i> Subir Macro y Ejecutar
+                                </button>                                                        
 	                          </div>
 	                        </div>                                       
 					</div>   					

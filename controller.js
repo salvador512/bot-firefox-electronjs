@@ -18,7 +18,7 @@ app.controller("MainController",function($scope,$http) {
   $scope.getIIM = getIIM;  
   $scope.m64 = "";  
   $scope.addTimers = addTimers
-  $scope.waitTime = 1
+  $scope.waitTime = 2
   $scope.getIP = getIP;
   $scope.IP = IP;
   $scope.ip_dir = ""
@@ -138,12 +138,12 @@ function encode(macro,output) {
 
 function addTimers(model) {
   if (model != "") {
-    console.log(model)
+    // console.log(model)
     buffer = model.split("\n")
-    console.log(buffer);
+    // console.log(buffer);
 
     for (var i = 0 ; i <= buffer.length -1; i++) {
-      console.log(buffer[i]);
+      // console.log(buffer[i]);
       if ( buffer[i].includes("URL GOTO=")) {
         buffer[i] = buffer[i]+"\n WAIT SECONDS=2"
       }
@@ -152,7 +152,7 @@ function addTimers(model) {
       }      
 
     }
-    console.log(buffer.length);
+    // console.log(buffer.length);
     todo=""
     for(var i = 0 ; i <= buffer.length -1; i++){
       todo = todo +buffer[i] + "\n"
@@ -183,7 +183,6 @@ function getWorkers() {
   $scope.workers = parseInt($scope.n_users)
   console.log($scope.workers);
   if ($scope.workers > 0) {
-    console.log("ll");
     $scope.workersStatus  = false
     console.log($scope.workersStatus );
   }

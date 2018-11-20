@@ -1,7 +1,7 @@
 {
-  "name": "desktop",
+  "name": "Firefox-Bot-desktop",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bot para firefox con base en IMacros",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
@@ -16,11 +16,11 @@
   },
   "devDependencies": {
     "electron": "^2.0.9",
-    "electron-builder": "^20.28.4"
+    "electron-builder": "^20.31.2"
   },
   "build": {
     "appId": "firefox-bot",
-    "asar": true,
+    "asar": false,
     "dmg": {
       "contents": [
         {

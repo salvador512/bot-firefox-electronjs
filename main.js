@@ -14,7 +14,7 @@ function createWindow(){
 		slashes: true
 	}))
 
-	// win.webContents.openDevTools()
+	win.webContents.openDevTools()
 }
 
 exports.openWindow = () => {
